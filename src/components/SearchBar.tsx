@@ -2,6 +2,8 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import globalStyle from "../styles/common.module.css";
+import style from "./search-bar.module.css";
 
 export default function SearchBar() {
   const router = useRouter();
@@ -30,9 +32,9 @@ export default function SearchBar() {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <div>
+        <div className={style.search_inner}>
           <label>
-            {/* <span>영화제목 검색</span> */}
+            <span className={globalStyle.visually_hidden}>영화제목 검색</span>
             <input
               type="text"
               value={search}

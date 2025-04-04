@@ -1,3 +1,16 @@
+import AllMoviesList from "@/components/AllMoviesList";
+import RecommendedMoviesList from "@/components/RecommendedMoviesList";
+import style from "../../styles/common.module.css";
+
 export default function Home() {
-  return <div>메인페이지(index)</div>;
+  return (
+    <>
+      <section className={style.container}>
+        <RecommendedMoviesList />
+      </section>
+      <section className={style.container}>
+        <AllMoviesList />
+      </section>
+    </>
+  );
 }

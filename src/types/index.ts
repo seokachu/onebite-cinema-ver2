@@ -9,3 +9,11 @@ export interface MovieData {
   runtime: number;
   posterImgUrl: string;
 }
+
+export interface MoviesListItemProps {
+  item: MovieData;
+}
+
+export interface MoviesListProps {
+  movies: MovieData[];
+}

@@ -1,0 +1,83 @@
+.container {
+  padding: 0 0 108px;
+}
+
+.img_inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 500px;
+}
+
+.img_inner::before {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .7);
+  content: "";
+}
+
+.img_inner img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.movie_info {
+  margin: 30px 0;
+}
+
+.movie_info .title {
+  font-weight: 700;
+  font-size: 1.375rem;
+  margin-bottom: 10px;
+}
+
+.movie_info .info_list {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.movie_info .info_list li {
+  color: rgba(255, 255, 255, .7);
+  position: relative;
+}
+
+.movie_info .info_list li::after {
+  position: absolute;
+  content: '';
+  width: 1px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, .7);
+  left: calc(100% + 7px);
+  top: 1px;
+}
+
+.movie_info .info_list li:last-child::after {
+  display: none;
+}
+
+.company {
+  line-height: 1.2rem;
+  margin-top: 5px;
+}
+
+.movie_description h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.movie_description p {
+  color: rgba(255, 255, 255, .7);
+  line-height: 1.5rem;
+}

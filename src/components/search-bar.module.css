@@ -1,0 +1,26 @@
+.search_inner {
+  display: flex;
+  gap: 10px;
+}
+
+.search_inner label {
+  flex: 1;
+}
+
+.search_inner input {
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  width: 100%;
+}
+
+.search_inner button {
+  width: 80px;
+  border-radius: 5px;
+  background-color: gray;
+}
+
+.search_inner input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.05);
+}

@@ -1,0 +1,80 @@
+/*----------- LAYOUT ------------*/
+.wrapper {
+  max-width: 800px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  margin: 0 auto;
+}
+
+.main {
+  flex: 1;
+}
+
+.container {
+  padding: 40px 0;
+}
+
+/*----------- HEADER ------------*/
+.header {
+  padding: 20px 0;
+}
+
+.header a {
+  color: rgb(229, 9, 20);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/*----------- FOOTER ------------*/
+.footer {
+  text-align: center;
+  padding: 20px 0;
+}
+
+/*----------- ERROR ------------*/
+.error_section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  text-align: center;
+}
+
+.error_section h2 {
+  margin-bottom: 10px;
+}
+
+.error_section {
+  font-size: 1.375rem;
+}
+
+.error_section a:hover {
+  color: gray;
+}
+
+/*----------- Screen Reader Only -----------*/
+.visually_hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/*----------- EMPTY -----------*/
+.empty {
+  font-size: 1.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  min-height: 300px;
+}
