@@ -1,8 +1,11 @@
+import { getAllMovies } from "@/lib/api/movies";
 import style from "../app/(with-searchbar)/page.module.css";
 import MoviesListItem from "./MoviesListItem";
-import movies from "@/mock/dummy.json";
+import type { MovieData } from "@/types";
 
-export default function AllMoviesList() {
+export default async function AllMoviesList() {
+  const movies: MovieData[] = await getAllMovies();
+
   return (
     <>
       <h2 className={style.title}>등록된 모든 영화</h2>

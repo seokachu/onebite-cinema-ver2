@@ -1,26 +1,22 @@
 import MoviesListItem from "@/components/MoviesListItem";
 import globalStyle from "../../../styles/common.module.css";
 import style from "../page.module.css";
-import movies from "@/mock/dummy.json";
+import { getSearchMovies } from "@/lib/api/movies";
+import type { MovieData } from "@/types";
 
 export default async function Page({
   searchParams,
 }: {
-  searchParams: Promise<{ q?: string }>;
+  searchParams: Promise<{ q: string }>;
 }) {
   const { q } = await searchParams;
-
-  const filteredMovies = q
-    ? movies.filter((movie) =>
-        movie.title.toLowerCase().includes(q.toLowerCase())
-      )
-    : movies;
+  const movie: MovieData[] = await getSearchMovies(q);
 
   return (
     <div className={globalStyle.container}>
-      {filteredMovies.length > 0 ? (
+      {movie.length > 0 ? (
         <ul className={style.recommend_list}>
-          {filteredMovies.map((item) => (
+          {movie.map((item) => (
             <MoviesListItem key={item.id} item={item} />
           ))}
         </ul>
