@@ -49,7 +49,7 @@ export const getSearchMovies = async (q: string) => {
 
   try {
     const response = await fetch(`${SERVER_URL}/movie/search?q=${q}`, {
-      next: { tags: [`search-${q}`] },
+      next: { tags: [`search-${q}`], revalidate: 86400 },
     });
 
     if (!response.ok) {
