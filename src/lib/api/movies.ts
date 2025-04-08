@@ -5,7 +5,7 @@ const SERVER_URL = process.env.NEXT_PUBLIC_API_SERVER_URL;
 export const getAllMovies = async () => {
   try {
     const response = await fetch(`${SERVER_URL}/movie`, {
-      next: { revalidate: 86400 },
+      next: { revalidate: 60 * 60 * 24 },
     });
 
     if (!response.ok) {
@@ -26,7 +26,7 @@ export const getAllMovies = async () => {
 export const getRecoMovies = async () => {
   try {
     const response = await fetch(`${SERVER_URL}/movie/random`, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 60 * 60 },
     });
 
     if (!response.ok) {
@@ -49,7 +49,7 @@ export const getSearchMovies = async (q: string) => {
 
   try {
     const response = await fetch(`${SERVER_URL}/movie/search?q=${q}`, {
-      next: { tags: [`search-${q}`], revalidate: 86400 },
+      next: { tags: [`search-${q}`], revalidate: 60 * 60 * 24 },
     });
 
     if (!response.ok) {
@@ -71,7 +71,7 @@ export const getSearchMovies = async (q: string) => {
 export const getMovieDetail = async (id: string) => {
   try {
     const response = await fetch(`${SERVER_URL}/movie/${id}`, {
-      next: { revalidate: 86400 },
+      next: { revalidate: 60 * 60 * 24 },
     });
 
     if (!response.ok) {
