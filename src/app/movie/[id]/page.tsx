@@ -1,9 +1,20 @@
 import Image from "next/image";
 import style from "./page.module.css";
-import { getMovieDetail } from "@/lib/api/movies";
+import { getMovieDetail, getMovieIds } from "@/lib/api/movies";
 
-export default async function Page({ params }: { params: { id: string } }) {
-  const { id } = params;
+export async function generateStaticParams() {
+  return await getMovieIds();
+}
+
+//존재하지 않는 페이지
+export const dynamicParams = false;
+
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
   const movie = await getMovieDetail(id);
 
   const {
