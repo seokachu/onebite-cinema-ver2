@@ -7,7 +7,9 @@ const SERVER_URL = process.env.NEXT_PUBLIC_API_SERVER_URL;
 //전체 movie data 불러오기
 export const getAllMovies = async () => {
   try {
-    const response = await fetch(`${SERVER_URL}/movie`);
+    const response = await fetch(`${SERVER_URL}/movie`, {
+      next: { revalidate: 60 * 60 * 24 },
+    });
 
     if (!response.ok) {
       throw new Error(
@@ -31,7 +33,9 @@ export const getAllMovies = async () => {
 //추천 movie data
 export const getRecoMovies = async () => {
   try {
-    const response = await fetch(`${SERVER_URL}/movie/random`);
+    const response = await fetch(`${SERVER_URL}/movie/random`, {
+      next: { revalidate: 60 },
+    });
 
     if (!response.ok) {
       throw new Error(
@@ -79,7 +83,9 @@ export const getSearchMovies = async (q: string) => {
 //영화 상세 페이지 데이터 불러오기
 export const getMovieDetail = async (id: string) => {
   try {
-    const response = await fetch(`${SERVER_URL}/movie/${id}`);
+    const response = await fetch(`${SERVER_URL}/movie/${id}`, {
+      next: { revalidate: 60 * 60 * 24 },
+    });
 
     if (!response.ok) {
       throw new Error(
