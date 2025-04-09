@@ -2,6 +2,7 @@ import MoviesListItem from "@/components/MoviesListItem";
 import globalStyle from "../../../styles/common.module.css";
 import style from "../page.module.css";
 import { getSearchMovies } from "@/lib/api/movies";
+import { delay } from "@/utils/delay";
 import type { MovieData } from "@/types";
 
 export default async function Page({
@@ -11,6 +12,7 @@ export default async function Page({
 }) {
   const { q } = await searchParams;
   const movie: MovieData[] = await getSearchMovies(q);
+  await delay(3000);
 
   return (
     <div className={globalStyle.container}>
