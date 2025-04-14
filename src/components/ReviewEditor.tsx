@@ -1,6 +1,6 @@
 "use client";
-
 import { useActionState, useEffect, useRef } from "react";
+import toast from "react-hot-toast";
 import style from "./review.module.css";
 import createReviewAction from "@/actions/create-review.action";
 
@@ -15,12 +15,12 @@ export default function ReviewEditor({ movieId }: { movieId: string }) {
     if (!state) return;
 
     if (!state.status) {
-      alert(state.error);
+      toast.error(state.error as string);
       return;
     }
 
     if (state.message) {
-      alert(state.message);
+      toast.success(state.message);
       formRef.current?.reset();
       return;
     }

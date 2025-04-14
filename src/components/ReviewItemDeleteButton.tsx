@@ -1,6 +1,6 @@
 "use client";
-
 import { useActionState, useEffect, useRef, useTransition } from "react";
+import toast from "react-hot-toast";
 import style from "./review.module.css";
 import deleteReviewAction, {
   actuallyRevalidate,
@@ -22,12 +22,12 @@ export default function ReviewItemDeleteButton({
     if (!state) return;
 
     if (!state.status) {
-      alert(state.error);
+      toast.error(state.error as string);
       return;
     }
 
     if (state.message) {
-      alert(state.message);
+      toast.success(state.message);
 
       startTransition(() => {
         actuallyRevalidate(movieId);
