@@ -1,6 +1,7 @@
 .search_inner {
   display: flex;
   gap: 10px;
+
 }
 
 .search_inner label {
