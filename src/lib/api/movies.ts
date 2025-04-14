@@ -179,7 +179,7 @@ export const deleteMovieReview = async (reviewId: string) => {
       );
     }
 
-    return response.json();
+    return true;
   } catch (err) {
     if (err instanceof Error) {
       throw new Error(err.message);
