@@ -1,8 +1,10 @@
 "use client";
 
-import { useActionState, useEffect, useRef } from "react";
+import { useActionState, useEffect, useRef, useTransition } from "react";
 import style from "./review.module.css";
-import deleteReviewAction from "@/actions/delete-review.action";
+import deleteReviewAction, {
+  actuallyRevalidate,
+} from "@/actions/delete-review.action";
 import type { ReviewItemDeleteButtonProps } from "@/types";
 
 export default function ReviewItemDeleteButton({
@@ -10,13 +12,13 @@ export default function ReviewItemDeleteButton({
   reviewId,
 }: ReviewItemDeleteButtonProps) {
   const formRef = useRef<HTMLFormElement>(null);
+  const [, startTransition] = useTransition();
   const [state, formAction, isPending] = useActionState(
     deleteReviewAction,
     null
   );
 
   useEffect(() => {
-    
     if (!state) return;
 
     if (!state.status) {
@@ -26,7 +28,10 @@ export default function ReviewItemDeleteButton({
 
     if (state.message) {
       alert(state.message);
-      return;
+
+      startTransition(() => {
+        actuallyRevalidate(movieId);
+      });
     }
   }, [state]);
 

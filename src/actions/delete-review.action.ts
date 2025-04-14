@@ -3,12 +3,16 @@ import { deleteMovieReview } from "@/lib/api/movies";
 import { revalidateTag } from "next/cache";
 import type { ActionState } from "@/types";
 
+export async function actuallyRevalidate(movieId: number) {
+  "use server";
+  revalidateTag(`movie-review-${movieId}`);
+}
+
 export default async function deleteReviewAction(
   _: null | ActionState,
   formData: FormData
 ): Promise<ActionState> {
   const reviewId = formData.get("reviewId")?.toString();
-  const movieId = formData.get("movieId")?.toString();
 
   if (!reviewId) {
     return {
@@ -19,7 +23,6 @@ export default async function deleteReviewAction(
 
   try {
     await deleteMovieReview(reviewId);
-    revalidateTag(`movie-review-${movieId}`);
 
     return {
       status: true,

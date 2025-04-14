@@ -1,7 +1,7 @@
 import style from "./review.module.css";
 import { formattedDate } from "@/utils/date";
-import type { ReviewItemProps } from "@/types";
 import ReviewItemDeleteButton from "./ReviewItemDeleteButton";
+import type { ReviewItemProps } from "@/types";
 
 export default function ReviewItem({ item }: ReviewItemProps) {
   const { id, movieId, content, author, createdAt } = item;
