@@ -33,7 +33,7 @@ export default function ReviewItemDeleteButton({
         actuallyRevalidate(movieId);
       });
     }
-  }, [state]);
+  }, [state, movieId]);
 
   const handleDeleteClick = () => {
     if (confirm("정말로 삭제하시겠습니까?")) {
