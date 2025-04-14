@@ -16,6 +16,7 @@ export default function ReviewItemDeleteButton({
   );
 
   useEffect(() => {
+    
     if (!state) return;
 
     if (!state.status) {

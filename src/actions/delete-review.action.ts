@@ -1,7 +1,7 @@
 "use server";
 import { deleteMovieReview } from "@/lib/api/movies";
-import type { ActionState } from "@/types";
 import { revalidateTag } from "next/cache";
+import type { ActionState } from "@/types";
 
 export default async function deleteReviewAction(
   _: null | ActionState,
