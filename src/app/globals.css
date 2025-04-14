@@ -144,3 +144,7 @@ button {
   cursor: pointer;
   border: none;
 }
+
+textarea {
+  resize: none;
+}

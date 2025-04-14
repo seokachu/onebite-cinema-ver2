@@ -81,3 +81,9 @@
   color: rgba(255, 255, 255, .7);
   line-height: 1.5rem;
 }
+
+.movie_title {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 20px;
+}

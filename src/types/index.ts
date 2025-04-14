@@ -22,3 +22,21 @@ export interface MovieListSkeletonProps {
   count: number;
   className?: string;
 }
+
+export interface ReviewData {
+  id: number;
+  content: string;
+  author: string;
+  createdAt: string;
+  movieId: number;
+}
+
+export interface ReviewItemProps {
+  item: ReviewData;
+}
+
+export type ActionState = {
+  status: boolean;
+  error?: string;
+  message?: string;
+};

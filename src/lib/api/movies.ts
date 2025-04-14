@@ -1,4 +1,4 @@
-import { MovieData } from "@/types";
+import { MovieData, ReviewData } from "@/types";
 import { notFound } from "next/navigation";
 
 //데이터 전부 불러오기
@@ -114,4 +114,77 @@ export const getMovieIds = async () => {
   }));
 
   return movie;
+};
+
+//영화 리뷰 데이터 불러오기
+export const getMovieReviews = async (movieId: string) => {
+  try {
+    const response = await fetch(`${SERVER_URL}/review/movie/${movieId}`, {
+      next: { tags: [`movie-review-${movieId}`], revalidate: 60 },
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `영화 리뷰 데이터를 불러오는데 실패했습니다 : ${response.statusText}`
+      );
+    }
+
+    if (response.status === 404) {
+      notFound();
+    }
+
+    return response.json();
+  } catch (err) {
+    if (err instanceof Error) {
+      throw new Error(err.message);
+    }
+    throw err;
+  }
+};
+
+//영화 리뷰 데이터 저장하기
+export const createMovieReview = async (
+  reviewData: Pick<ReviewData, "movieId" | "content" | "author">
+) => {
+  try {
+    const response = await fetch(`${SERVER_URL}/review`, {
+      method: "POST",
+      body: JSON.stringify(reviewData),
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `영화 리뷰 데이터를 저장하는데 실패했습니다 : ${response.statusText}`
+      );
+    }
+
+    return response.json();
+  } catch (err) {
+    if (err instanceof Error) {
+      throw new Error(err.message);
+    }
+    throw err;
+  }
+};
+
+//영화 리뷰 데이터 삭제하기
+export const deleteMovieReview = async (id: string) => {
+  try {
+    const response = await fetch(`${SERVER_URL}/review/${id}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `영화 리뷰 데이터를 삭제하는데 실패했습니다 : ${response.statusText}`
+      );
+    }
+
+    return response.json();
+  } catch (err) {
+    if (err instanceof Error) {
+      throw new Error(err.message);
+    }
+    throw err;
+  }
 };
