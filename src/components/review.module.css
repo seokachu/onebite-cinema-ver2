@@ -39,6 +39,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 50px;
+  min-height: 250px;
 }
 
 .review_list .review_item {
@@ -71,11 +72,19 @@
   font-size: 0.875rem;
 }
 
+.review_list .review_item form {
+  margin-left: auto;
+}
 
 .review_list .review_item .del_btn {
   color: #999;
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
-  margin-left: auto;
+}
+
+.review_empty {
+  text-align: center;
+  margin-top: 100px;
+  min-height: 100px;
 }

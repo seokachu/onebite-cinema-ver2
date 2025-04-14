@@ -168,9 +168,9 @@ export const createMovieReview = async (
 };
 
 //영화 리뷰 데이터 삭제하기
-export const deleteMovieReview = async (id: string) => {
+export const deleteMovieReview = async (reviewId: string) => {
   try {
-    const response = await fetch(`${SERVER_URL}/review/${id}`, {
+    const response = await fetch(`${SERVER_URL}/review/${reviewId}`, {
       method: "DELETE",
     });
 
@@ -180,7 +180,11 @@ export const deleteMovieReview = async (id: string) => {
       );
     }
 
-    return response.json();
+    return {
+      status: true,
+      error: "",
+      message: "리뷰가 성공적으로 삭제되었습니다.",
+    };
   } catch (err) {
     if (err instanceof Error) {
       throw new Error(err.message);

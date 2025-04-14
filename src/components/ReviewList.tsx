@@ -12,7 +12,7 @@ export default async function ReviewList({ movieId }: { movieId: string }) {
         reviews.map((item) => <ReviewItem key={item.id} item={item} />)
       ) : (
         <li>
-          <h3>작성된 리뷰가 없습니다.</h3>
+          <h3 className={style.review_empty}>작성된 리뷰가 없습니다.</h3>
         </li>
       )}
     </ul>

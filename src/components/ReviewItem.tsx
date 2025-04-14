@@ -1,9 +1,10 @@
 import style from "./review.module.css";
 import { formattedDate } from "@/utils/date";
 import type { ReviewItemProps } from "@/types";
+import ReviewItemDeleteButton from "./ReviewItemDeleteButton";
 
 export default function ReviewItem({ item }: ReviewItemProps) {
-  const { content, author, createdAt } = item;
+  const { id, movieId, content, author, createdAt } = item;
 
   return (
     <li className={style.review_item}>
@@ -13,7 +14,7 @@ export default function ReviewItem({ item }: ReviewItemProps) {
       </div>
       <p>{content}</p>
       <div>
-        <span className={style.del_btn}>삭제하기</span>
+        <ReviewItemDeleteButton movieId={movieId} reviewId={id} />
       </div>
     </li>
   );

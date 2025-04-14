@@ -40,3 +40,8 @@ export type ActionState = {
   error?: string;
   message?: string;
 };
+
+export interface ReviewItemDeleteButtonProps {
+  movieId: number;
+  reviewId: number;
+}

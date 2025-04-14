@@ -32,7 +32,7 @@ export default function ReviewEditor({ movieId }: { movieId: string }) {
       ref={formRef}
       className={style.review_editor_inner}
     >
-      <input type="text" name="movieId" value={movieId} hidden readOnly />
+      <input name="movieId" value={movieId} hidden readOnly />
       <textarea
         placeholder="내용을 입력해 주세요."
         name="content"
