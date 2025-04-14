@@ -1,7 +1,6 @@
 import { MovieData, ReviewData } from "@/types";
 import { notFound } from "next/navigation";
 
-//데이터 전부 불러오기
 const SERVER_URL = process.env.NEXT_PUBLIC_API_SERVER_URL;
 
 //전체 movie data 불러오기
@@ -180,11 +179,7 @@ export const deleteMovieReview = async (reviewId: string) => {
       );
     }
 
-    return {
-      status: true,
-      error: "",
-      message: "리뷰가 성공적으로 삭제되었습니다.",
-    };
+    return response.json();
   } catch (err) {
     if (err instanceof Error) {
       throw new Error(err.message);
