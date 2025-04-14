@@ -1,0 +1,46 @@
+.recommend_list,
+.all_movie_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.recommend_list {
+  margin: -10px;
+}
+
+.all_movie_list {
+  margin: -5px;
+}
+
+.recommend_list li {
+  width: calc(33.3% - 20px);
+  margin: 10px;
+  margin-bottom: -8px;
+}
+
+.all_movie_list li {
+  width: calc(20% - 10px);
+  margin: 5px;
+}
+
+.recommend_list li .image,
+.all_movie_list li .image {
+  background-color: silver;
+  border-radius: 5px;
+
+}
+
+.recommend_list li .image {
+  height: 343px;
+}
+
+.all_movie_list li .image {
+  height: 206px;
+}
+
+.recommend_list li .title {
+  background-color: silver;
+  width: 80%;
+  height: 20px;
+  margin: 10px auto;
+}

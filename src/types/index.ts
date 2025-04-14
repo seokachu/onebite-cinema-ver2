@@ -17,3 +17,8 @@ export interface MoviesListItemProps {
 export interface MoviesListProps {
   movies: MovieData[];
 }
+
+export interface MovieListSkeletonProps {
+  count: number;
+  className?: string;
+}
