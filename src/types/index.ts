@@ -45,3 +45,7 @@ export interface ReviewItemDeleteButtonProps {
   movieId: number;
   reviewId: number;
 }
+
+export type PageProps = {
+  params: Promise<{ id: string }>;
+};
