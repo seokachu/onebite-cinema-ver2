@@ -6,10 +6,21 @@ import createReviewAction from "@/actions/create-review.action";
 
 export default function ReviewEditor({ movieId }: { movieId: string }) {
   const formRef = useRef<HTMLFormElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [state, formAction, isPending] = useActionState(
     createReviewAction,
     null
   );
+
+  useEffect(() => {
+    scrollTo({
+      top: 0,
+      behavior: "instant",
+    });
+    requestAnimationFrame(() => {
+      textareaRef.current?.focus({ preventScroll: true });
+    });
+  }, []);
 
   useEffect(() => {
     if (!state) return;
@@ -34,11 +45,11 @@ export default function ReviewEditor({ movieId }: { movieId: string }) {
     >
       <input name="movieId" value={movieId} hidden readOnly />
       <textarea
+        ref={textareaRef}
         placeholder="내용을 입력해 주세요."
         name="content"
         maxLength={200}
         required
-        autoFocus
       />
       <div className={style.review_editor_input}>
         <input
