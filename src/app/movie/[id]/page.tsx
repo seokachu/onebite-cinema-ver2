@@ -1,7 +1,10 @@
 import { getMovieIds } from "@/lib/api/movies";
 import MovieDetail from "@/components/MovieDetail";
 import ReviewSection from "@/components/ReviewSection";
+import { generateMetadata } from "@/metadata/movie";
 import type { PageProps } from "@/types";
+
+export { generateMetadata };
 
 export async function generateStaticParams() {
   return await getMovieIds();

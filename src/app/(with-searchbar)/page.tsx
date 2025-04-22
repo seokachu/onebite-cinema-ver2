@@ -5,6 +5,9 @@ import globalStyle from "../../styles/common.module.css";
 import style from "../(with-searchbar)/page.module.css";
 import MovieListSkeleton from "@/components/skeleton/MovieListSkeleton";
 import skeletonStyle from "../../components/skeleton/movie-item-skeleton.module.css";
+import { HomeMetadata } from "@/metadata/home";
+
+export const metadata = HomeMetadata;
 
 export default function Home() {
   return (

@@ -2,6 +2,9 @@ import SearchResults from "@/components/SearchResults";
 import MovieListSkeleton from "@/components/skeleton/MovieListSkeleton";
 import style from "../../../components/skeleton/movie-item-skeleton.module.css";
 import { Suspense } from "react";
+import { generateMetadata } from "@/metadata/search";
+
+export { generateMetadata };
 
 export default async function Page({
   searchParams,
